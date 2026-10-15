@@ -5,7 +5,7 @@ metadata:
   name: netflix
   namespace: netflix
 spec:
-  replicas: 5
+  replicas: 10
   revisionHistoryLimit: 3
 
   selector:
