@@ -1,11 +1,13 @@
 
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
+
 metadata:
   name: netflix
   namespace: netflix
+
 spec:
-  replicas: 6
+  replicas: 10
   revisionHistoryLimit: 3
 
   selector:
@@ -16,10 +18,13 @@ spec:
     metadata:
       labels:
         app: netflix
+
     spec:
       containers:
         - name: netflix
-          image: shaikhdocker/netflix:12-f7f8e1a
+          image: shaikhdocker/netflix:14-e70831a
+          imagePullPolicy: IfNotPresent
+
           ports:
             - containerPort: 80
 
@@ -30,31 +35,22 @@ spec:
             initialDelaySeconds: 5
             periodSeconds: 10
 
-          resources:
-            requests:
-              cpu: 100m
-              memory: 128Mi
-            limits:
-              cpu: 500m
-              memory: 512Mi
-
   strategy:
     canary:
       maxSurge: 1
       maxUnavailable: 0
 
       steps:
-        - setWeight: 20
+        # Stage 1: 25% new version
+        - setWeight: 25
         - pause: {}
 
-        - setWeight: 40
+        # Stage 2: 50% new version
+        - setWeight: 50
         - pause:
-            duration: 30s
+            duration: 60s
 
-        - setWeight: 60
+        # Stage 3: 75% new version
+        - setWeight: 75
         - pause:
-            duration: 30s
-
-        - setWeight: 80
-        - pause:
-            duration: 30s
+            duration: 60s
