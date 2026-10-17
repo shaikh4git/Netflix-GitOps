@@ -5,6 +5,7 @@ metadata:
   namespace: argocd-std
 spec:
   replicas: 6
+  revisionHistoryLimit: 3
   selector:
     matchLabels:
       app: netflix
