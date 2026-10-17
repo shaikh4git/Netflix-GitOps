@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: netflix
-          image: shaikhdocker/netflix:16-03ae5b6
+          image: shaikhdocker/netflix:20-d5077eb
           imagePullPolicy: IfNotPresent
           ports:
             - containerPort: 80
