@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/shaikh4git/Netflix-GitOps.git
     targetRevision: main
-    path: netflix/ArgoCD
+    path: netflix/argocd
 
   destination:
     server: https://kubernetes.default.svc

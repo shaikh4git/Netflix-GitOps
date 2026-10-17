@@ -9,7 +9,7 @@ spec:
   source:
     repoURL: https://github.com/shaikh4git/Netflix-GitOps.git
     targetRevision: main
-    path: netflix/ArgoRollout
+    path: netflix/rollout
 
   destination:
     server: https://kubernetes.default.svc
