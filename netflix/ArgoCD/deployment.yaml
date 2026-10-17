@@ -1,8 +1,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: netflix
-  namespace: netflix
+  name: netflix-deployment
+  namespace: argocd-std
 spec:
   replicas: 4
   selector:
