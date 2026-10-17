@@ -3,7 +3,7 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
   name: netflix-bluegreen
-  namespace: argorollout
+  namespace: argo-bluegreen
 
 spec:
   replicas: 4
