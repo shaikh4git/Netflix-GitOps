@@ -1,7 +1,7 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: netflix
+  name: netflix-standard
   namespace: argocd
 spec:
   project: default
@@ -9,11 +9,11 @@ spec:
   source:
     repoURL: https://github.com/shaikh4git/Netflix-GitOps.git
     targetRevision: main
-    path: netflix
+    path: netflix/ArgoCD
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: netflix
+    namespace: argocd-std
 
   syncPolicy:
     automated:
