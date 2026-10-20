@@ -3,11 +3,11 @@ apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 
 metadata:
-  name: netflix-rollout
-  namespace: argo-rollouts
+  name: netflix-canary
+  namespace: netflix-canary
 
 spec:
-  replicas: 3
+  replicas: 10
   revisionHistoryLimit: 3
 
   selector:
