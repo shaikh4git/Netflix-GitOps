@@ -13,7 +13,7 @@ spec:
 
   destination:
     server: https://kubernetes.default.svc
-    namespace: argo-bluegreen
+    namespace: netflix-bluegreen
 
   syncPolicy:
     automated:
